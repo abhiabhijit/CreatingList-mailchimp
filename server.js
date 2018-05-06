@@ -10,7 +10,6 @@ const flash=require('express-flash');
 
 const app=express();
 
-//mongodb://<dbuser>:<dbpassword>@ds117070.mlab.com:17070/abhinewsletter
 app.engine('.hbs',expressHbs({defaultLayout:'layout',extname:'.hbs'}));
 
 app.set('view engine','hbs');
@@ -37,14 +36,14 @@ app.use(session({
 	resave:true,
 	saveUinitialized:true,
 	secret:"thisissecretkey",
-	store:new MongoStore({url :"mongodb://root:abhijit007@ds117070.mlab.com:17070/abhinewsletter"})
+	store:new MongoStore({url :"//mongodb://<dbuser>:<dbpassword>@ds117070.mlab.com:17070/abhinewsletter
+"})
 }));
 
 app.use(flash());
 
 
-//https://us17.api.mailchimp.com/3.0/lists/306c2ea01a/members
-//0effa7fb34dea50edbf0bb4190ce08e9-us17
+//https://us17.api.mailchimp.com/3.0/lists/<listid>/members
 
 // app.get('/',(req,res,next)=>{
 
@@ -59,10 +58,10 @@ app.route('/')
 	.post((req,res,next)=>{
 
 		request({
-			url:'https://us17.api.mailchimp.com/3.0/lists/306c2ea01a/members',
+			url:'https://us17.api.mailchimp.com/3.0/lists/<list id>/members',
 			method:'POST',
 			headers:{
-				'Authorization':'randomUser 0effa7fb34dea50edbf0bb4190ce08e9-us17',
+				'Authorization':'randomUser <mailchimp_apiKey>',
 				'Content-type':'application/json'
 			},
 			json:{
