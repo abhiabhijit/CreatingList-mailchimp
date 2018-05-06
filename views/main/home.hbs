@@ -1,0 +1,36 @@
+<div class="starter-template">
+        <h1>Enter your Email</h1>
+        <p class="lead">Subscribe to the news letter and get latest updates from me directly to your mail.</p>
+      </div>
+
+      <div class="row">
+      	
+      	<div class="col-6 mx-auto " >
+
+      		{{#if message }}
+      		<div class="alert alert-success alert-dismissible">
+      			<button type="button" class="close" data-dismiss="alert" aria-label="Close">      				
+      				<span aria-hidden="true">&times </span>
+      			</button>
+      			{{ message }}
+
+
+      		</div>
+
+
+      		{{/if}}
+
+
+      		<form method="post" >
+      			<div class="form-group">
+      			<label for="email">Email Address</label>
+      			<input type="email" class="form-control" name="email">	
+      			</div>
+      			<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      			
+
+      		</form>
+
+
+      	</div>
+      </div>
